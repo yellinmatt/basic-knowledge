@@ -15,15 +15,18 @@
 <meta name="twitter:title" content="Basic Knowledge — Library">
 <meta name="twitter:description" content="A library of daily lessons across art, history, science, philosophy, food, drink, language, and practical craft. One concept a day.">
 <style>
-:root { color-scheme: light; --ink: #1a1a1a; --muted: #6b6357; --rule: #b8a986; --bg: #faf7f2; --soft: #f3eee1; --serif: Georgia, "Times New Roman", serif; --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+:root { color-scheme: light dark; --ink: #1a1a1a; --muted: #6b6357; --rule: #b8a986; --rule-soft: var(--rule-soft); --field: #fffefb; --bg: #faf7f2; --soft: #f3eee1; --serif: Georgia, "Times New Roman", serif; --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+@media (prefers-color-scheme: dark) { :root { --ink: #ece5d6; --muted: #a79c87; --rule: #7a6b48; --rule-soft: #34301f; --field: #221f17; --bg: #1a1813; --soft: #232017; } }
 * { box-sizing: border-box; }
 body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: var(--serif); -webkit-font-smoothing: antialiased; }
 .wrap { max-width: 820px; margin: 0 auto; padding: 56px 28px 80px; }
-.masthead { text-align: center; border-bottom: 0.5px solid var(--rule); padding-bottom: 32px; margin-bottom: 36px; }
-.masthead h1 { font-family: var(--serif); font-size: 44px; font-weight: 500; letter-spacing: -0.012em; margin: 0 0 14px; }
-.masthead .about { font-family: var(--serif); font-size: 16.5px; color: var(--ink); line-height: 1.65; margin: 0 auto; max-width: 540px; }
+.masthead { text-align: center; border-top: 2px solid var(--rule); border-bottom: 0.5px solid var(--rule); padding: 22px 0 30px; margin-bottom: 38px; }
+.masthead .kicker { font-family: var(--sans); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.masthead h1 { font-family: var(--serif); font-size: 50px; font-weight: 500; letter-spacing: -0.015em; margin: 0 0 14px; }
+.masthead .about { font-family: var(--serif); font-size: 16px; color: var(--ink); line-height: 1.65; margin: 0 auto 16px; max-width: 540px; }
+.masthead .mast-stats { font-family: var(--sans); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
 .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 28px; }
-.search { flex: 1; min-width: 220px; padding: 10px 14px; border: 0.5px solid var(--rule); border-radius: 4px; background: #fffefb; font-family: var(--serif); font-size: 15px; color: var(--ink); }
+.search { flex: 1; min-width: 220px; padding: 10px 14px; border: 0.5px solid var(--rule); border-radius: 4px; background: var(--field); font-family: var(--serif); font-size: 15px; color: var(--ink); }
 .search::placeholder { color: var(--muted); font-style: italic; }
 .search:focus { outline: none; border-color: var(--ink); }
 .pills { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -38,8 +41,8 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
 .year-body { border-top: 0.5px solid var(--rule); padding-top: 8px; }
 .year.collapsed .year-body { display: none; }
 .domain { margin-top: 18px; }
-.domain h3 { font-family: var(--sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 0.5px solid #e2d8b9; }
-.lesson { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 14px 0; border-bottom: 0.5px solid #e2d8b9; align-items: start; }
+.domain h3 { font-family: var(--sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 0.5px solid var(--rule-soft); }
+.lesson { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 14px 0; border-bottom: 0.5px solid var(--rule-soft); align-items: start; }
 .lesson:last-child { border-bottom: none; }
 .lesson .thumb { display: block; }
 .lesson .thumb img { width: 64px; height: 64px; object-fit: cover; object-position: top center; border-radius: 4px; display: block; background: var(--soft); }
@@ -72,8 +75,10 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
 <body>
 <div class="wrap">
   <header class="masthead">
+    <div class="kicker">A Commonplace Book</div>
     <h1>Basic Knowledge</h1>
     <p class="about">A library of daily lessons across art, history, science, philosophy, food, drink, language, and practical craft. One concept a day, written for my own learning and kept here in case it&rsquo;s useful to anyone else.</p>
+    <div class="mast-stats" id="mast-stats">Established May 2026</div>
   </header>
 
   <section class="latest" id="latest">
@@ -203,6 +208,12 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
   const domains = Array.from(new Set(
     Array.from(catalog.querySelectorAll('.lesson')).map(l => l.dataset.domain)
   )).sort();
+
+  const ms = document.getElementById('mast-stats');
+  if (ms) {
+    const n = catalog.querySelectorAll('.lesson').length;
+    ms.textContent = n + (n === 1 ? ' lesson' : ' lessons') + ' · ' + domains.length + (domains.length === 1 ? ' domain' : ' domains') + ' · established May 2026';
+  }
   for (const d of domains) {
     const b = document.createElement('button');
     b.className = 'pill';
