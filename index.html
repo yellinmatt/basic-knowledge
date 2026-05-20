@@ -45,6 +45,21 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
 .lesson .meta a { color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 18px; border-bottom: 0.5px dotted transparent; transition: border-color 0.15s; }
 .lesson .meta a:hover { border-bottom-color: var(--rule); }
 .lesson .summary { font-family: var(--serif); font-size: 14px; color: var(--muted); margin: 4px 0 0; line-height: 1.55; }
+.latest { margin-bottom: 34px; }
+.latest-label { font-family: var(--sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.latest-label .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rule); display: inline-block; }
+.latest-card { display: grid; grid-template-columns: 200px 1fr; gap: 22px; background: var(--soft); border: 0.5px solid var(--rule); border-radius: 6px; padding: 20px; align-items: center; }
+.latest-img { display: block; }
+.latest-img img { width: 200px; height: 200px; object-fit: cover; border-radius: 4px; display: block; background: var(--rule); }
+.latest-kicker { font-family: var(--sans); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.latest-title { display: block; font-family: var(--serif); font-size: 28px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; line-height: 1.12; margin-bottom: 8px; }
+.latest-title:hover { border-bottom: 0.5px solid var(--rule); }
+.latest-deck { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--muted); line-height: 1.5; margin: 0 0 14px; }
+.latest-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.latest-meta span { font-family: var(--sans); font-size: 11px; letter-spacing: 0.04em; color: var(--muted); border: 0.5px solid var(--rule); border-radius: 3px; padding: 3px 9px; }
+.latest-cta { display: inline-block; font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em; color: var(--bg); background: var(--ink); text-decoration: none; padding: 9px 16px; border-radius: 4px; }
+.latest-cta:hover { background: #000; }
+@media (max-width: 560px) { .latest-card { grid-template-columns: 1fr; } .latest-img img { width: 100%; } }
 .empty { text-align: center; padding: 60px 0; color: var(--muted); font-style: italic; }
 .foot { margin-top: 64px; padding-top: 24px; border-top: 0.5px solid var(--rule); font-family: var(--serif); font-size: 13px; color: var(--muted); text-align: center; line-height: 1.65; }
 .foot .name { color: var(--ink); }
@@ -58,6 +73,22 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
     <h1>Basic Knowledge</h1>
     <p class="about">A library of daily lessons across art, history, science, philosophy, food, drink, language, and practical craft. One concept a day, written for my own learning and kept here in case it&rsquo;s useful to anyone else.</p>
   </header>
+
+  <section class="latest" id="latest">
+    <div class="latest-label"><span class="dot"></span> Latest lesson &middot; Tuesday, May 19, 2026</div>
+    <div class="latest-card">
+      <a class="latest-img" href="2026-05-19 - Music - Goldberg Variations.html">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Johann_Sebastian_Bach.jpg?width=600" alt="Portrait of Johann Sebastian Bach">
+      </a>
+      <div class="latest-body">
+        <div class="latest-kicker">Music &middot; Baroque</div>
+        <a class="latest-title" href="2026-05-19 - Music - Goldberg Variations.html">The Goldberg Variations</a>
+        <p class="latest-deck">Thirty variations Bach raised on a single bass line, the Baroque&rsquo;s most architectural keyboard work, bookended by Glenn Gould&rsquo;s two recordings a quarter-century apart.</p>
+        <div class="latest-meta"><span>~4 min read</span><span>Listen call-out</span></div>
+        <a class="latest-cta" href="2026-05-19 - Music - Goldberg Variations.html">Read the lesson &rarr;</a>
+      </div>
+    </div>
+  </section>
 
   <div class="controls">
     <input class="search" id="search" type="search" placeholder="Search titles and summaries...">
