@@ -39,9 +39,11 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
 .year.collapsed .year-body { display: none; }
 .domain { margin-top: 18px; }
 .domain h3 { font-family: var(--sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 0.5px solid #e2d8b9; }
-.lesson { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 12px 0; border-bottom: 0.5px solid #e2d8b9; align-items: baseline; }
+.lesson { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 14px 0; border-bottom: 0.5px solid #e2d8b9; align-items: start; }
 .lesson:last-child { border-bottom: none; }
-.lesson .date { font-family: var(--sans); font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+.lesson .thumb { display: block; }
+.lesson .thumb img { width: 64px; height: 64px; object-fit: cover; object-position: top center; border-radius: 4px; display: block; background: var(--soft); }
+.lesson .date { font-family: var(--sans); font-size: 10px; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; }
 .lesson .meta a { color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 18px; border-bottom: 0.5px dotted transparent; transition: border-color 0.15s; }
 .lesson .meta a:hover { border-bottom-color: var(--rule); }
 .lesson .summary { font-family: var(--serif); font-size: 14px; color: var(--muted); margin: 4px 0 0; line-height: 1.55; }
@@ -59,7 +61,7 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
 .latest-meta span { font-family: var(--sans); font-size: 11px; letter-spacing: 0.04em; color: var(--muted); border: 0.5px solid var(--rule); border-radius: 3px; padding: 3px 9px; }
 .latest-cta { display: inline-block; font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em; color: var(--bg); background: var(--ink); text-decoration: none; padding: 9px 16px; border-radius: 4px; }
 .latest-cta:hover { background: #000; }
-@media (max-width: 560px) { .latest-card { grid-template-columns: 1fr; } .latest-img img { width: 100%; } .lesson { grid-template-columns: 1fr; gap: 2px; } .lesson .date { margin-bottom: 2px; } }
+@media (max-width: 560px) { .latest-card { grid-template-columns: 1fr; } .latest-img img { width: 100%; } }
 .empty { text-align: center; padding: 60px 0; color: var(--muted); font-style: italic; }
 .foot { margin-top: 64px; padding-top: 24px; border-top: 0.5px solid var(--rule); font-family: var(--serif); font-size: 13px; color: var(--muted); text-align: center; line-height: 1.65; }
 .foot .name { color: var(--ink); }
@@ -110,8 +112,9 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
         <div class="domain" data-domain="Music">
           <h3>Music</h3>
           <div class="lesson" data-domain="Music" data-text="bach goldberg variations bwv 988 baroque keyboard aria glenn gould 1955 1981 columbia 30th street studio harpsichord clavier ubung schmid nuremberg forkel keyserlingk quodlibet canon">
-            <div class="date">2026-05-19</div>
+            <a class="thumb" href="2026-05-19 - Music - Goldberg Variations.html"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Johann_Sebastian_Bach.jpg?width=200" alt="" loading="lazy"></a>
             <div class="meta">
+              <div class="date">2026-05-19</div>
               <a href="2026-05-19 - Music - Goldberg Variations.html">The Goldberg Variations</a>
               <p class="summary">Bach BWV 988, published 1741 by Balthasar Schmid of Nuremberg, an Aria plus 30 variations plus the Aria da capo built on the bass line, every third variation a canon at a widening interval, Quodlibet at variation 30. Forkel's 1802 Keyserlingk legend, now mostly rejected. The 14 canons (BWV 1087) found in Bach's Handexemplar in 1974. Glenn Gould's 1955 debut recording at Columbia 30th Street Studio (38:34) and the 1981 digital re-reading in the same room (51:18) bookending his career.</p>
             </div>
@@ -121,8 +124,9 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
         <div class="domain" data-domain="Poetry">
           <h3>Poetry</h3>
           <div class="lesson" data-domain="Poetry" data-text="ozymandias shelley sonnet horace smith ramesses ii younger memnon british museum diodorus siculus belzoni examiner 1818 glirastes king of kings romantic">
-            <div class="date">2026-05-18</div>
+            <a class="thumb" href="2026-05-18 - Poetry - Ozymandias.html"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Percy_Bysshe_Shelley_by_Alfred_Clint_crop.jpg?width=200" alt="" loading="lazy"></a>
             <div class="meta">
+              <div class="date">2026-05-18</div>
               <a href="2026-05-18 - Poetry - Ozymandias.html">Ozymandias</a>
               <p class="summary">Shelley's 1817 Christmas-competition sonnet with Horace Smith, published in The Examiner 11 January 1818 under the pen name Glirastes, written before the Younger Memnon bust of Ramesses II reached London. Diodorus Siculus as source, the four-narrator Russian-doll frame, the hybrid ABABACDCEDEFEF rhyme scheme as form-as-ruin, Belzoni's extraction from the Ramesseum, the bust now in British Museum Room 4.</p>
             </div>
@@ -132,8 +136,9 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
         <div class="domain" data-domain="Architecture">
           <h3>Architecture</h3>
           <div class="lesson" data-domain="Architecture" data-text="pantheon rome hadrian agrippa dome oculus concrete brunelleschi jefferson boniface santa maria ad martyres">
-            <div class="date">2026-05-17</div>
+            <a class="thumb" href="2026-05-17 - Architecture - The Pantheon.html"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/0%20Pantheon%20-%20Piazza%20della%20Rotonda%20-%20Rome%20%281a%29.JPG?width=200" alt="" loading="lazy"></a>
             <div class="meta">
+              <div class="date">2026-05-17</div>
               <a href="2026-05-17 - Architecture - The Pantheon.html">The Pantheon</a>
               <p class="summary">Hadrian's Roman temple to all the gods c. 118 to 128 CE, dome diameter 43.3 m equal to floor-to-oculus height, the inscribed-sphere geometry, graded concrete recipe, conversion to Santa Maria ad Martyres in 609 CE under Boniface IV, influence on Brunelleschi and Jefferson.</p>
             </div>
@@ -143,8 +148,9 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
         <div class="domain" data-domain="Philosophy">
           <h3>Philosophy</h3>
           <div class="lesson" data-domain="Philosophy" data-text="marcus aurelius stoicism meditations roman emperor oikeiosis">
-            <div class="date">2026-05-16</div>
+            <a class="thumb" href="2026-05-16 - Philosophy - Marcus Aurelius.html"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/0%20Marcus%20Aurelius%20-%20Palazzo%20Nuovo%20-%20Musei%20Capitolini%20%281%29.JPG?width=200" alt="" loading="lazy"></a>
             <div class="meta">
+              <div class="date">2026-05-16</div>
               <a href="2026-05-16 - Philosophy - Marcus Aurelius.html">Marcus Aurelius</a>
               <p class="summary">Roman emperor and Stoic, his private notebook the Meditations, oikeiōsis and the cosmopolis, the bronze horseman on the Capitoline.</p>
             </div>
@@ -154,8 +160,9 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
         <div class="domain" data-domain="Visual Arts">
           <h3>Visual Arts</h3>
           <div class="lesson" data-domain="Visual Arts" data-text="neoclassicism david oath horatii canova psyche winckelmann pompeii architecture jefferson soufflot schinkel">
-            <div class="date">2026-05-16</div>
+            <a class="thumb" href="2026-05-16 - Visual Arts - Neoclassicism.html"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jacques-Louis%20David%20-%20Oath%20of%20the%20Horatii%20-%20Google%20Art%20Project.jpg?width=200" alt="" loading="lazy"></a>
             <div class="meta">
+              <div class="date">2026-05-16</div>
               <a href="2026-05-16 - Visual Arts - Neoclassicism.html">Neoclassicism</a>
               <p class="summary">Movement overview 1750 to 1830, Winckelmann and Pompeii as triggers, David's Oath of the Horatii as touchstone, Canova and Houdon in sculpture, Soufflot Schinkel Jefferson in architecture.</p>
             </div>
@@ -165,8 +172,9 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
         <div class="domain" data-domain="Cocktails">
           <h3>Cocktails</h3>
           <div class="lesson" data-domain="Cocktails" data-text="negroni cocktail campari vermouth gin boulevardier sbagliato florence camillo">
-            <div class="date">2026-05-16</div>
+            <a class="thumb" href="2026-05-16 - Cocktails - The Negroni.html"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Via%20de%27%20Tornabuoni%2015%2C%20palazzo%20viviani%20della%20robbia%2C%20lapide%20alla%20drogheria%20casoni%20e%20cocktail%20negroni%2C%202019.jpg?width=200" alt="" loading="lazy"></a>
             <div class="meta">
+              <div class="date">2026-05-16</div>
               <a href="2026-05-16 - Cocktails - The Negroni.html">The Negroni</a>
               <p class="summary">IBA 1:1:1 recipe, Boulevardier and Sbagliato variations, Camillo Negroni and the 1919 Caffé Casoni origin, Campari and vermouth notes.</p>
             </div>
@@ -218,7 +226,7 @@ body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-fam
     let visible = 0;
     catalog.querySelectorAll('.lesson').forEach(l => {
       const matchDomain = !activeDomain || l.dataset.domain === activeDomain;
-      const matchText = !q || (l.dataset.text + ' ' + l.querySelector('a').textContent + ' ' + l.querySelector('.summary').textContent).toLowerCase().includes(q);
+      const matchText = !q || (l.dataset.text + ' ' + l.querySelector('.meta a').textContent + ' ' + l.querySelector('.summary').textContent).toLowerCase().includes(q);
       const show = matchDomain && matchText;
       l.classList.toggle('hidden', !show);
       if (show) visible++;
